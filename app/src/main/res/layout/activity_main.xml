@@ -13,12 +13,17 @@
         android:id="@+id/lblQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:textSize="20sp"
         android:text="@string/main_lblQuantity" />
 
     <EditText
         android:id="@+id/txtAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingRight="5dp"
         android:inputType="numberDecimal"
         android:selectAllOnFocus="true"
         android:gravity="right"
@@ -28,12 +33,15 @@
         android:id="@+id/lblCoinFrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:text="@string/main_coinFrom"/>
 
     <RadioGroup
         android:id="@+id/rgCoinFrom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
         <RadioButton
             android:id="@+id/rbFromEuro"
@@ -62,12 +70,16 @@
         android:id="@+id/lblCoinTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:text="@string/main_coinTo"/>
 
     <RadioGroup
         android:id="@+id/rgCoinTo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -98,6 +110,11 @@
         android:id="@+id/btnExchange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/main_btnText"/>
 
 </LinearLayout>

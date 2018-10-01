@@ -23,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgF;
     ImageView imgT;
     Button btnExChange;
+    final double ETOD=1.16;
+    final double ETOP=0.88;
+    final double DTOE=0.86;
+    final double DTOP=0.76;
+    final double PTOE=1.12;
+    final double PTOD=1.30;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,30 +58,30 @@ public class MainActivity extends AppCompatActivity {
 
         if(rbFromE.isChecked()){
             if(rbToD.isChecked()){
-                result=result*1.16;
-                actuallyCurrency="USD";
+                result=result*ETOD;
+                actuallyCurrency=getString(R.string.main_textDollar);
             }
             if(rbToP.isChecked()){
-                result=result*0.88;
-                actuallyCurrency="GBP";
+                result=result*ETOP;
+                actuallyCurrency=getString(R.string.main_textPound);
             }
         }else if(rbFromD.isChecked()){
             if(rbToE.isChecked()){
-                result=result*0.86;
-                actuallyCurrency="EUR";
+                result=result*DTOE;
+                actuallyCurrency=getString(R.string.main_textEuro);
             }
             if(rbToP.isChecked()){
-                result=result*0.76;
-                actuallyCurrency="GBP";
+                result=result*DTOP;
+                actuallyCurrency=getString(R.string.main_textPound);
             }
         }else{
             if(rbToE.isChecked()){
-                result=result*1.12;
-                actuallyCurrency="EUR";
+                result=result*PTOE;
+                actuallyCurrency=getString(R.string.main_textEuro);
             }
             if(rbToD.isChecked()){
-                result=result*1.30;
-                actuallyCurrency="USD";
+                result=result*PTOD;
+                actuallyCurrency=getString(R.string.main_textDollar);
             }
         }
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cambio Divisa</string>
+    <string name="main_lblQuantity">Cantidad</string>
+    <string name="main_et_hintQuantity">0.00</string>
+    <string name="main_coinFrom">Moneda origen</string>
+    <string name="main_rbTextEuro">Euro</string>
+    <string name="main_rbTextDolar">Dolar</string>
+    <string name="main_rbTextLibra">Libra</string>
+    <string name="main_btnText">Cambio</string>
+    <string name="main_coinTo">Moneda destino</string>
+    <string name="main_voidText">0.00</string>
+    <string name="main_textDollar">USD</string>
+    <string name="main_textPound">GBP</string>
+    <string name="main_textEuro">EUR</string>
+</resources>
