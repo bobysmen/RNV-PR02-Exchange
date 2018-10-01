@@ -6,11 +6,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText amount;
+    RadioGroup rgFrom;
+    RadioGroup rgTo;
     RadioButton rbFromE;
     RadioButton rbFromD;
     RadioButton rbFromP;
@@ -27,12 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setupView();
 
-        rbFromE.setOnClickListener(v-> settingCurrencyFrom());
-        rbFromD.setOnClickListener(v-> settingCurrencyFrom());
-        rbFromP.setOnClickListener(v-> settingCurrencyFrom());
-        rbToE.setOnClickListener(v-> settingCurrencyTo());
-        rbToD.setOnClickListener(v-> settingCurrencyTo());
-        rbToP.setOnClickListener(v-> settingCurrencyTo());
+        rgFrom.setOnCheckedChangeListener((group,checkedId)->settingCurrencyFrom());
+        rgTo.setOnCheckedChangeListener(((group, checkedId) -> settingCurrencyTo()));
 
         btnExChange.setOnClickListener(v->change());
         amount.setOnClickListener(v->selectAllText());
@@ -85,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupView() {
         amount=findViewById(R.id.txtAmount);
+        rgFrom=findViewById(R.id.rgCoinFrom);
+        rgTo=findViewById(R.id.rgCoinTo);
         rbFromE=findViewById(R.id.rbFromEuro);
         rbFromD=findViewById(R.id.rbFromDolar);
         rbFromP=findViewById(R.id.rbFromPound);
@@ -99,12 +100,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void settingCurrencyTo() {
-        if(rbToE.isChecked()){
+        if(rgTo.getCheckedRadioButtonId()==rbToE.getId()){
             imgT.setImageResource(R.drawable.ic_euro);
             rbFromE.setEnabled(false);
             rbFromD.setEnabled(true);
             rbFromP.setEnabled(true);
-        }else if(rbToD.isChecked()){
+        }else if(rgTo.getCheckedRadioButtonId()==rbToD.getId()){
             imgT.setImageResource(R.drawable.ic_dollar);
             rbFromD.setEnabled(false);
             rbFromE.setEnabled(true);
@@ -118,12 +119,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void settingCurrencyFrom() {
-        if(rbFromE.isChecked()){
+        if(rgFrom.getCheckedRadioButtonId()==rbFromE.getId()){
             imgF.setImageResource(R.drawable.ic_euro);
             rbToE.setEnabled(false);
             rbToD.setEnabled(true);
             rbToP.setEnabled(true);
-        }else if(rbFromD.isChecked()){
+        }else if(rgFrom.getCheckedRadioButtonId()==rbFromD.getId()){
             imgF.setImageResource(R.drawable.ic_dollar);
             rbToD.setEnabled(false);
             rbToE.setEnabled(true);
