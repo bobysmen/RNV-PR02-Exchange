@@ -1,6 +1,5 @@
 package com.example.anabelen.exchange;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -8,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgF;
     ImageView imgT;
     Button btnExChange;
-    final double ETOD=1.16;
+    final double ETOD=1.17;
     final double ETOP=0.88;
     final double DTOE=0.86;
     final double DTOP=0.76;
@@ -48,11 +49,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void change() {
+        // USA Code -> Reformat code PARA QUE EL CÓDIGO TE QUEDE BONITO
         double result= 0;
         String actuallyCurrency="";
         try {
             result = Double.parseDouble(String.valueOf(amount.getText()));
         } catch (NumberFormatException e) {
+            // DEBERÍAS APROVECHAR QUE CAPTURAS EL ERROR PARA ACTUALIZAR A 0.00 EL TEXTO DEL
+            // EditText
             e.printStackTrace();
         }
 
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 actuallyCurrency=getString(R.string.main_textDollar);
             }
         }
-
+        // EN VEZ DE String.format() DEFINE UN RECURSO DE CADENAS CON PARÁMETROS.
         Toast.makeText(this, String.format("%.2f %s",result,actuallyCurrency),Toast.LENGTH_SHORT).show();
     }
 
@@ -93,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
         rgFrom=findViewById(R.id.rgCoinFrom);
         rgTo=findViewById(R.id.rgCoinTo);
         rbFromE=findViewById(R.id.rbFromEuro);
-        rbFromD=findViewById(R.id.rbFromDolar);
+        rbFromD=findViewById(R.id.rbFromDollar);
         rbFromP=findViewById(R.id.rbFromPound);
         rbToE=findViewById(R.id.rbToEuro);
-        rbToD=findViewById(R.id.rbToDolar);
+        rbToD=findViewById(R.id.rbToDollar);
         rbToP=findViewById(R.id.rbToPound);
         imgF=findViewById(R.id.imgFrom);
         imgT=findViewById(R.id.imgTo);
@@ -108,16 +112,22 @@ public class MainActivity extends AppCompatActivity {
     private void settingCurrencyTo() {
         if(rgTo.getCheckedRadioButtonId()==rbToE.getId()){
             imgT.setImageResource(R.drawable.ic_euro);
+            // AGREGO PARA QUE PASE TESTS.
+            imgT.setTag(R.drawable.ic_euro);
             rbFromE.setEnabled(false);
             rbFromD.setEnabled(true);
             rbFromP.setEnabled(true);
         }else if(rgTo.getCheckedRadioButtonId()==rbToD.getId()){
             imgT.setImageResource(R.drawable.ic_dollar);
+            // AGREGO PARA QUE PASE TESTS.
+            imgT.setTag(R.drawable.ic_dollar);
             rbFromD.setEnabled(false);
             rbFromE.setEnabled(true);
             rbFromP.setEnabled(true);
         }else{
             imgT.setImageResource(R.drawable.ic_pound);
+            // AGREGO PARA QUE PASE TESTS.
+            imgT.setTag(R.drawable.ic_pound);
             rbFromP.setEnabled(false);
             rbFromD.setEnabled(true);
             rbFromE.setEnabled(true);
@@ -127,16 +137,22 @@ public class MainActivity extends AppCompatActivity {
     private void settingCurrencyFrom() {
         if(rgFrom.getCheckedRadioButtonId()==rbFromE.getId()){
             imgF.setImageResource(R.drawable.ic_euro);
+            // AGREGO PARA QUE PASE TESTS.
+            imgF.setTag(R.drawable.ic_euro);
             rbToE.setEnabled(false);
             rbToD.setEnabled(true);
             rbToP.setEnabled(true);
         }else if(rgFrom.getCheckedRadioButtonId()==rbFromD.getId()){
             imgF.setImageResource(R.drawable.ic_dollar);
+            // AGREGO PARA QUE PASE TESTS.
+            imgF.setTag(R.drawable.ic_dollar);
             rbToD.setEnabled(false);
             rbToE.setEnabled(true);
             rbToP.setEnabled(true);
         }else{
             imgF.setImageResource(R.drawable.ic_pound);
+            // AGREGO PARA QUE PASE TESTS.
+            imgF.setTag(R.drawable.ic_pound);
             rbToP.setEnabled(false);
             rbToD.setEnabled(true);
             rbToE.setEnabled(true);
